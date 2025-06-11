@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectakhirbd.WaliKelas.MenuWaliKelasController">
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #007BFF;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Sistem Informasi Sekolah" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets left="20.0" />
+                    </HBox.margin>
+                </Label>
+                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label fx:id="userNameLabel" text="Selamat Datang, Nama Wali Kelas!" textFill="WHITE">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets right="10.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #DC3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Logout">
+                            <HBox.margin>
+                                <Insets right="20.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <VBox prefHeight="640.0" prefWidth="220.0" style="-fx-background-color: #333333;" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Menu Guru" textFill="#999999">
+                    <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="jadwalMengajarButton" mnemonicParsing="false" onAction="#showJadwalMengajar" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold;" text="Jadwal Kelas Mengajar">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                </Button>
+                <Button fx:id="inputNilaiButton" mnemonicParsing="false" onAction="#showInputNilai" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold;" text="Memasukkan Nilai">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+                <Label text="Menu Wali Kelas" textFill="#999999">
+                    <VBox.margin>
+                        <Insets left="10.0" top="20.0" />
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="cetakRaporButton" mnemonicParsing="false" onAction="#showCetakRapor" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-font-weight: bold;" text="Cetak Rapor">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Button>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" stylesheets="@../style.css" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            <Label text="Dashboard Guru (Wali Kelas)" textFill="#333333">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="TOP_CENTER" spacing="20.0" VBox.vgrow="ALWAYS">
+                <children>
+                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <children>
+                            <TitledPane animated="false" collapsible="false" text="Jadwal Mengajar Hari Ini" textFill="#333333">
+                                <content>
+                                    <VBox prefHeight="150.0" prefWidth="200.0">
+                                        <children>
+                                            <Label fx:id="jadwalHariIniLabel" text="Tidak ada jadwal hari ini." visible="false">
+                                                <font>
+                                                    <Font size="14.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                </VBox.margin>
+                                            </Label>
+                                            <TableView fx:id="jadwalHariIniTable" prefHeight="200.0" prefWidth="200.0">
+                                                <columns>
+                                                </columns>
+                                            </TableView>
+                                        </children>
+                                    </VBox>
+                                </content>
+                                <font>
+                                    <Font name="System Bold" size="14.0" />
+                                </font>
+                            </TitledPane>
+                            <TitledPane animated="false" collapsible="false" text="Pengumuman untuk Guru" textFill="#333333">
+                                <content>
+                                    <VBox prefHeight="150.0" prefWidth="200.0">
+                                        <children>
+                                            <ListView fx:id="pengumumanListView" prefHeight="200.0" prefWidth="200.0" />
+                                        </children>
+                                    </VBox>
+                                </content>
+                                <font>
+                                    <Font name="System Bold" size="14.0" />
+                                </font>
+                            </TitledPane>
+                        </children>
+                    </VBox>
+                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="300.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                        <children>
+                            <TitledPane animated="false" collapsible="false" text="Info Kelas Wali Anda" textFill="#333333">
+                                <content>
+                                    <VBox alignment="CENTER" prefHeight="150.0" prefWidth="200.0">
+                                        <children>
+                                            <Label fx:id="kelasWaliLabel" text="Kelas Wali Anda: [Nama Kelas Anda]" textFill="#007BFF">
+                                                <font>
+                                                    <Font name="System Bold" size="18.0" />
+                                                </font>
+                                            </Label>
+                                            <Button mnemonicParsing="false" onAction="#showDaftarSiswaKelasWali" style="-fx-background-color: #17A2B8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Lihat Daftar Siswa Kelas Wali">
+                                                <VBox.margin>
+                                                    <Insets top="10.0" />
+                                                </VBox.margin>
+                                            </Button>
+                                            <Label fx:id="rataRataKehadiranLabel" text="Rata-rata Kehadiran: - " visible="false">
+                                                <font>
+                                                    <Font size="12.0" />
+                                                </font>
+                                                <VBox.margin>
+                                                    <Insets top="5.0" />
+                                                </VBox.margin>
+                                            </Label>
+                                            <Button mnemonicParsing="false" onAction="#showCetakRapor" style="-fx-background-color: #28A745; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Cetak Rapor Kelas Wali">
+                                                <VBox.margin>
+                                                    <Insets top="10.0" />
+                                                </VBox.margin>
+                                            </Button>
+                                        </children>
+                                    </VBox>
+                                </content>
+                                <font>
+                                    <Font name="System Bold" size="14.0" />
+                                </font>
+                            </TitledPane>
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

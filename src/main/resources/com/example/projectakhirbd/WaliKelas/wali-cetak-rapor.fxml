@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="750.0" prefWidth="1100.0" spacing="20.0" style="-fx-background-color: #F0F2F5;" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectakhirbd.WaliKelas.CetakRaporController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <children>
+            <Label fx:id="raporTitleLabel" text="Cetak Rapor Kelas [Nama Kelas Wali Kelas]" textFill="#333333">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                <children>
+                    <Button fx:id="backToMenuButton" mnemonicParsing="false" onAction="#handleBackToMenu" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Kembali ke Menu">
+                        <HBox.margin>
+                            <Insets left="20.0" />
+                        </HBox.margin>
+                    </Button>
+                </children>
+            </HBox>
+        </children>
+    </HBox>
+    <Separator prefWidth="200.0" />
+    <HBox alignment="CENTER_LEFT" spacing="15.0">
+        <children>
+            <Label text="Pilih Siswa:" />
+            <ComboBox fx:id="siswaComboBox" onAction="#handleSiswaSelected" prefWidth="250.0" promptText="Pilih Siswa" />
+            <Button mnemonicParsing="false" onAction="#handleTampilkanRapor" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Tampilkan Rapor" />
+            <Separator orientation="VERTICAL" HBox.hgrow="ALWAYS" />
+            <Button mnemonicParsing="false" onAction="#handleCetakSemuaRapor" style="-fx-background-color: #17A2B8; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Cetak Semua Rapor Siswa" />
+            <Button fx:id="cetakButton" mnemonicParsing="false" onAction="#handleCetakRapor" prefHeight="26.0" prefWidth="211.0" style="-fx-background-color: #28A745; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Cetak Rapor Siswa yang dipilih" />
+        </children>
+    </HBox>
+    <VBox fx:id="raporPreviewArea" alignment="TOP_CENTER" style="-fx-border-color: #CCCCCC; -fx-border-radius: 5; -fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
+        <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+        </padding>
+        <children>
+            <Label text="Pratinjau Rapor" textFill="#333333">
+                <font>
+                    <Font name="System Bold" size="18.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </Label>
+            <GridPane hgap="10.0" vgap="5.0">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120.0" prefWidth="120.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="20.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label text="Nama Siswa:" />
+                    <Label fx:id="raporNamaSiswaLabel" text="[Nama Siswa]" GridPane.columnIndex="1" />
+                    <Label text="Nomor Induk:" GridPane.rowIndex="1" />
+                    <Label fx:id="raporNisLabel" text="[NIS]" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label text="Kelas:" GridPane.rowIndex="2" />
+                    <Label fx:id="raporKelasLabel" text="[Kelas]" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                </children>
+            </GridPane>
+            <Separator prefWidth="200.0">
+                <VBox.margin>
+                    <Insets bottom="15.0" top="15.0" />
+                </VBox.margin>
+            </Separator>
+            <Label text="Detail Nilai" textFill="#333333">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+            </Label>
+            <TableView fx:id="nilaiRaporTable" prefHeight="300.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="mapelRaporColumn" prefWidth="200.0" text="Mata Pelajaran" />
+                    <TableColumn fx:id="uh1RaporColumn" prefWidth="80.0" text="UH 1" />
+                    <TableColumn fx:id="uh2RaporColumn" prefWidth="80.0" text="UH 2" />
+                    <TableColumn fx:id="utsRaporColumn" prefWidth="80.0" text="UTS" />
+                    <TableColumn fx:id="uasRaporColumn" prefWidth="80.0" text="UAS" />
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+        </children>
+    </VBox>
+</VBox>
