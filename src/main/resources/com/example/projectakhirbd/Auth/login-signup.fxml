@@ -13,9 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectakhirbd.Auth.LoginSignUpController">
+<HBox prefHeight="550.0" prefWidth="900.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectakhirbd.Auth.LoginSignUpController">
     <!-- Left Panel: Welcome Back! -->
-    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" styleClass="welcome-panel">
+    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" styleClass="welcome-panel" stylesheets="@../style.css">
         <children>
             <Label styleClass="welcome-text-1" text="Welcome back!">
                 <font>
@@ -37,12 +37,12 @@
     </VBox>
 
     <!-- Right Panel: Form Container (Sign In / Sign Up) -->
-    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" styleClass="right-panel">
-        <StackPane HBox.hgrow="ALWAYS">
+    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="450.0" styleClass="right-panel" stylesheets="@../style.css">
+        <StackPane stylesheets="@../style.css" HBox.hgrow="ALWAYS">
             <!-- Sign In Form -->
-            <VBox fx:id="signInForm" alignment="CENTER" styleClass="form-panel">
+            <VBox fx:id="signInForm" alignment="CENTER" styleClass="form-panel" stylesheets="@../style.css">
                 <children>
-                    <Label styleClass="form-title" text="Sign In">
+                    <Label styleClass="form-title" stylesheets="@../style.css" text="Sistem Sekolah">
                         <font>
                             <Font name="System Bold" size="32.0" />
                         </font>
@@ -50,27 +50,27 @@
                             <Insets bottom="40.0" />
                         </VBox.margin>
                     </Label>
-                    <TextField fx:id="usernameField" promptText="Username or Email" styleClass="custom-text-field">
+                    <TextField fx:id="usernameField" promptText="NRP or Email" styleClass="custom-text-field" stylesheets="@../style.css">
                         <VBox.margin>
                             <Insets bottom="20.0" />
                         </VBox.margin>
                     </TextField>
-                    <PasswordField fx:id="passwordField" promptText="Password" styleClass="custom-text-field">
+                    <PasswordField fx:id="passwordField" promptText="Password" styleClass="custom-text-field" stylesheets="@../style.css">
                         <VBox.margin>
                             <Insets bottom="20.0" />
                         </VBox.margin>
                     </PasswordField>
-                    <HBox alignment="CENTER_LEFT" VBox.vgrow="NEVER">
+                    <HBox alignment="CENTER_LEFT" stylesheets="@../style.css" VBox.vgrow="NEVER">
                         <children>
-                            <CheckBox mnemonicParsing="false" text="Remember me" styleClass="remember-me-checkbox" />
+                            <CheckBox mnemonicParsing="false" styleClass="remember-me-checkbox" text="Remember me" />
                             <Region HBox.hgrow="ALWAYS" />
-                            <Hyperlink text="Forgot password?" styleClass="forgot-password-link" onAction="#handleForgotPassword" />
+                            <Hyperlink onAction="#handleForgotPassword" styleClass="forgot-password-link" text="Forgot password?" />
                         </children>
                         <VBox.margin>
                             <Insets bottom="30.0" />
                         </VBox.margin>
                     </HBox>
-                    <Button fx:id="signInButton" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="45.0" prefWidth="280.0" styleClass="action-button-primary" text="Sign In">
+                    <Button fx:id="signInButton" mnemonicParsing="false" onAction="#handleLogIn" prefHeight="45.0" prefWidth="280.0" styleClass="action-button-primary" stylesheets="@../style.css" text="Log In">
                         <font>
                             <Font name="System Bold" size="18.0" />
                         </font>
@@ -78,13 +78,13 @@
                             <Insets bottom="40.0" />
                         </VBox.margin>
                     </Button>
-                    <HBox alignment="CENTER" VBox.vgrow="NEVER">
+                    <HBox alignment="CENTER" stylesheets="@../style.css" VBox.vgrow="NEVER">
                         <children>
-                            <Label text="New here?" styleClass="new-here-text" />
-                            <Hyperlink onAction="#showSignUpForm" text="Create an Account" styleClass="switch-form-link" />
+                            <Label styleClass="new-here-text" text="New here?" />
+                            <Hyperlink onAction="#showSignUpForm" styleClass="switch-form-link" text="Create an Account" />
                         </children>
                     </HBox>
-                    <Label fx:id="loginMessageLabel" styleClass="message-label" textFill="RED">
+                    <Label fx:id="loginMessageLabel" styleClass="message-label" stylesheets="@../style.css" textFill="RED">
                         <VBox.margin>
                             <Insets top="15.0" />
                         </VBox.margin>
@@ -96,7 +96,7 @@
             </VBox>
 
             <!-- Sign Up Form (Hidden by default) -->
-            <VBox fx:id="signUpForm" alignment="CENTER" managed="false" styleClass="form-panel" visible="false">
+            <VBox fx:id="signUpForm" alignment="CENTER" managed="false" styleClass="form-panel" stylesheets="@../style.css" visible="false">
                 <children>
                     <Label styleClass="form-title" text="Create Account">
                         <font>
@@ -136,8 +136,8 @@
                     </Button>
                     <HBox alignment="CENTER" VBox.vgrow="NEVER">
                         <children>
-                            <Label text="Already have an account?" styleClass="new-here-text" />
-                            <Hyperlink onAction="#showLogInForm" text="Sign In" styleClass="switch-form-link" />
+                            <Label styleClass="new-here-text" text="Already have an account?" />
+                            <Hyperlink onAction="#showLogInForm" styleClass="switch-form-link" text="Sign In" />
                         </children>
                     </HBox>
                     <Label fx:id="signUpMessageLabel" styleClass="message-label" textFill="RED">

@@ -1,79 +1,302 @@
+/* Global JavaFX Styles - Redesigned Dashboard */
+
+/* --- Color Palette --- */
+:root {
+    --primary-purple: #6C5CE7; /* Ungu gelap untuk sidebar dan tombol utama */
+    --light-purple-bg: #EDE8F7; /* Latar belakang aplikasi yang lebih terang */
+    --dark-grey-text: #333333;
+    --medium-grey-text: #555555;
+    --light-grey-text: #999999;
+    --white-bg: #FFFFFF;
+    --card-bg-light: #F8F8F8; /* Latar belakang kartu ringan */
+    --border-light: #E0E0E0;
+    --shadow-color: rgba(0,0,0,0.08); /* Bayangan lembut */
+    --accent-blue: #007BFF;
+    --accent-green: #28A745;
+    --accent-orange: #FFC107;
+    --accent-red: #DC3545;
+    --accent-teal: #17A2B8;
+}
+
+/* --- General Application Styling --- */
 .root {
-    -fx-font-family: "Segoe UI", sans-serif;
-    -fx-background-color: #F0F2F5;
+    -fx-font-family: "Inter", sans-serif;
+    -fx-background-color: var(--light-purple-bg);
 }
 
-.header-bar {
-    -fx-background-color: #007BFF;
+/* --- Top Bar / Header --- */
+.top-bar {
+    -fx-background-color: var(--white-bg);
     -fx-padding: 10px 20px;
+    -fx-spacing: 15px;
     -fx-alignment: CENTER_LEFT;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, var(--shadow-color), 5, 0.2, 0, 2); /* Bayangan bawah */
+    -fx-border-radius: 0 0 10px 10px; /* Sudut bawah membulat */
+    -fx-background-radius: 0 0 10px 10px;
 }
 
-.header-label {
-    -fx-text-fill: white;
-    -fx-font-size: 24px;
+.app-logo-text { /* Untuk nama aplikasi di header jika ada */
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: var(--dark-grey-text);
+}
+
+.search-field {
+    -fx-background-color: var(--card-bg-light);
+    -fx-border-color: transparent;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 15px;
+    -fx-prompt-text-fill: var(--light-grey-text);
+    -fx-font-size: 14px;
+}
+.search-field:focused {
+    -fx-border-color: var(--primary-purple);
+    -fx-effect: dropshadow(gaussian, var(--primary-purple), 3, 0.1, 0, 0);
+}
+
+.profile-icon { /* Untuk ImageView avatar */
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+}
+
+.user-name-label {
+    -fx-text-fill: var(--dark-grey-text);
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
 }
 
-.user-label {
-    -fx-text-fill: white;
-    -fx-font-size: 14px;
+/* --- Side Navigation Menu --- */
+.side-nav-pane { /* Parent VBox/BorderPane left */
+    -fx-background-color: var(--white-bg);
+    -fx-padding: 20px 0;
+    -fx-effect: dropshadow(gaussian, var(--shadow-color), 5, 0.2, 2, 0); /* Bayangan kanan */
+    -fx-background-radius: 0 10px 10px 0; /* Sudut kanan membulat */
 }
 
-.side-menu {
-    -fx-background-color: #333333;
-    -fx-padding: 10px 0;
-}
-
-.menu-button {
+.nav-button {
     -fx-background-color: transparent;
-    -fx-text-fill: white;
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-padding: 10px 20px;
+    -fx-text-fill: var(--medium-grey-text);
+    -fx-font-size: 15px;
+    -fx-font-weight: normal;
+    -fx-padding: 12px 20px;
     -fx-alignment: CENTER_LEFT;
-    -fx-pref-width: 220px;
+    -fx-graphic-text-gap: 15px; /* Jarak antara ikon dan teks */
+    -fx-border-radius: 8px; /* Untuk visual saat hover/selected */
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
 }
 
-.menu-button:hover {
-    -fx-background-color: #555555;
+.nav-button .text { /* Teks di dalam tombol */
+    -fx-fill: var(--medium-grey-text);
 }
 
-.menu-button:pressed {
-    -fx-background-color: #007BFF;
-    -fx-text-fill: white;
+.nav-button:hover {
+    -fx-background-color: var(--light-purple-bg);
+    -fx-text-fill: var(--primary-purple);
 }
 
-.menu-label-section {
-    -fx-text-fill: #999999;
-    -fx-font-size: 14px;
+.nav-button:hover .text {
+    -fx-fill: var(--primary-purple);
+}
+
+.nav-button:selected, .nav-button-active { /* Kelas untuk tombol yang sedang aktif/dipilih */
+    -fx-background-color: var(--primary-purple);
+    -fx-text-fill: var(--white-bg);
     -fx-font-weight: bold;
-    -fx-padding: 10px 10px 5px 10px;
 }
 
-.content-area {
-    -fx-background-color: #F0F2F5;
+.nav-button:selected .text, .nav-button-active .text {
+    -fx-fill: var(--white-bg);
+}
+
+.nav-section-label { /* Label untuk bagian menu seperti "Admin Menu" */
+    -fx-text-fill: var(--light-grey-text);
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-padding: 20px 20px 5px 20px;
+}
+
+.logout-button {
+    -fx-background-color: var(--accent-red);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 15px;
+    -fx-cursor: hand;
+}
+
+/* --- Main Content Area --- */
+.content-wrapper {
+    -fx-background-color: var(--light-purple-bg); /* Latar belakang area konten */
     -fx-padding: 20px;
+    -fx-spacing: 20px;
 }
 
-.page-title {
+.page-header {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: var(--dark-grey-text);
+}
+
+/* --- Info Cards (Dashboard Statistics) --- */
+.info-card {
+    -fx-background-color: var(--white-bg);
+    -fx-background-radius: 15px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, var(--shadow-color), 8, 0.1, 0, 2);
+    -fx-spacing: 10px;
+    -fx-alignment: TOP_LEFT;
+}
+
+.card-title {
+    -fx-font-size: 14px;
+    -fx-text-fill: var(--medium-grey-text);
+}
+
+.card-value {
     -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-    -fx-padding-bottom: 10px;
+    -fx-text-fill: var(--dark-grey-text);
 }
 
-.separator {
-    -fx-background-color: #DDDDDD;
+.card-icon-circle { /* Lingkaran di belakang ikon kartu */
+    -fx-background-color: var(--purple-light-bg); /* Warna latar ikon */
+    -fx-background-radius: 50%;
+    -fx-padding: 10px;
+}
+.card-icon-circle-blue { -fx-background-color: rgba(0, 123, 255, 0.15); }
+.card-icon-circle-green { -fx-background-color: rgba(40, 167, 69, 0.15); }
+.card-icon-circle-orange { -fx-background-color: rgba(255, 193, 7, 0.15); }
+.card-icon-circle-red { -fx-background-color: rgba(220, 53, 69, 0.15); }
+
+
+/* Untuk ikon di dalam kartu (jika menggunakan FontAwesomeFX/Inline SVG) */
+.card-icon {
+    -fx-fill: var(--primary-purple); /* Warna ikon default */
+}
+.card-icon-blue { -fx-fill: var(--accent-blue); }
+.card-icon-green { -fx-fill: var(--accent-green); }
+.card-icon-orange { -fx-fill: var(--accent-orange); }
+.card-icon-red { -fx-fill: var(--accent-red); }
+
+/* --- Chart/Table Sections --- */
+.chart-section, .table-section {
+    -fx-background-color: var(--white-bg);
+    -fx-background-radius: 15px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, var(--shadow-color), 8, 0.1, 0, 2);
+    -fx-spacing: 15px;
 }
 
-.button {
-    -fx-background-color: #6C757D;
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: var(--dark-grey-text);
+}
+
+/* --- Table View Styling (from previous styles, ensure consistency) --- */
+.table-view {
+    -fx-background-color: var(--white-bg);
+    -fx-border-color: var(--border-light);
+    -fx-border-radius: 10px; /* Lebih membulat */
+    -fx-background-radius: 10px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: var(--card-bg-light);
+    -fx-border-radius: 10px 10px 0 0;
+    -fx-background-radius: 10px 10px 0 0;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: var(--dark-grey-text);
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+}
+
+.table-row-cell {
+    -fx-background-color: -fx-table-cell-border-color, var(--white-bg);
+    -fx-background-insets: 0, 0 0 1px 0;
+    -fx-padding: 0;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: -fx-table-cell-border-color, var(--card-bg-light);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: var(--light-purple-bg);
+    -fx-text-fill: var(--dark-grey-text);
+}
+
+.table-cell {
+    -fx-border-color: transparent;
+    -fx-padding: 10px;
+    -fx-font-size: 13px;
+}
+
+/* --- Form Elements (reused from login/signup for consistency) --- */
+.custom-text-field {
+    -fx-padding: 10px 15px;
+    -fx-border-color: var(--border-gray-light);
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-background-color: var(--input-bg-gray);
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: var(--placeholder-text);
+}
+.custom-text-field:focused {
+    -fx-border-color: var(--primary-purple);
+    -fx-effect: dropshadow(gaussian, rgba(108, 92, 231, 0.2), 5, 0.2, 0, 0);
+}
+
+.combo-box {
+    -fx-background-color: var(--input-bg-gray);
+    -fx-border-color: var(--border-gray-light);
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 10px;
+}
+.combo-box:hover {
+    -fx-border-color: var(--primary-purple);
+}
+.combo-box .arrow-button {
+    -fx-background-color: transparent;
+}
+.combo-box .arrow {
+    -fx-background-color: var(--medium-grey-text);
+}
+.combo-box .list-cell {
+    -fx-background-color: var(--white-bg);
+    -fx-text-fill: var(--dark-grey-text);
+}
+.combo-box .list-cell:filled:selected, .combo-box .list-cell:filled:selected:hover {
+    -fx-background-color: var(--light-purple-bg);
+    -fx-text-fill: var(--primary-purple);
+}
+
+.text-area {
+    -fx-background-color: var(--input-bg-gray);
+    -fx-border-color: var(--border-gray-light);
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 10px;
+    -fx-font-size: 14px;
+}
+.text-area:focused {
+    -fx-border-color: var(--primary-purple);
+    -fx-effect: dropshadow(gaussian, rgba(108, 92, 231, 0.2), 5, 0.2, 0, 0);
+}
+
+/* --- General Buttons (reused from previous, ensure proper class application) --- */
+.button { /* Default grey button style */
+    -fx-background-color: #A0A0A0; /* Abu-abu default */
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-background-radius: 5px;
-    -fx-padding: 8px 15px;
+    -fx-background-radius: 8px; /* Lebih membulat */
+    -fx-padding: 10px 18px;
     -fx-cursor: hand;
 }
 
@@ -85,352 +308,38 @@
     -fx-translate-y: 1px;
 }
 
-.button-primary {
-    -fx-background-color: #007BFF;
+.button-primary { /* Biru primary */
+    -fx-background-color: var(--primary-purple);
+    -fx-text-fill: white;
+}
+.button-success { /* Hijau */
+    -fx-background-color: var(--accent-green);
+    -fx-text-fill: white;
+}
+.button-warning { /* Kuning */
+    -fx-background-color: var(--accent-orange);
+    -fx-text-fill: var(--dark-grey-text);
+}
+.button-danger { /* Merah */
+    -fx-background-color: var(--accent-red);
+    -fx-text-fill: white;
+}
+.button-info { /* Teal */
+    -fx-background-color: var(--accent-teal);
+    -fx-text-fill: white;
 }
 
-.button-success {
-    -fx-background-color: #28A745;
+/* --- Separator --- */
+.separator {
+    -fx-background-color: var(--border-light);
 }
 
-.button-warning {
-    -fx-background-color: #FFC107;
-    -fx-text-fill: #333333;
-}
-
-.button-danger {
-    -fx-background-color: #DC3545;
-}
-
-.button-info {
-    -fx-background-color: #17A2B8;
-}
-
-.text-field, .password-field, .text-area, .date-picker, .combo-box {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-    -fx-padding: 8px;
-}
-
-.text-field:focused, .password-field:focused, .text-area:focused, .date-picker:focused, .combo-box:focused {
-    -fx-border-color: #007BFF;
-    -fx-effect: dropshadow(gaussian, rgba(0, 123, 255, 0.2), 5, 0.2, 0, 0);
-}
-
-.combo-box .arrow-button {
-    -fx-background-color: transparent;
-}
-.combo-box .arrow {
-    -fx-background-color: #333333;
-}
-
-.table-view {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-}
-
-.table-view .column-header-background {
-    -fx-background-color: #E9ECEF;
-    -fx-border-radius: 5px 5px 0 0;
-}
-
-.table-view .column-header .label {
-    -fx-text-fill: #333333;
-    -fx-font-weight: bold;
-}
-
-.table-row-cell {
-    -fx-background-color: -fx-table-cell-border-color, #FFFFFF;
-    -fx-background-insets: 0, 0 0 1px 0;
-    -fx-padding: 0;
-}
-
-.table-row-cell:odd {
-    -fx-background-color: -fx-table-cell-border-color, #F8F8F8;
-}
-
-.table-row-cell:selected {
-    -fx-background-color: #CCE5FF;
-    -fx-text-fill: #333333;
-}
-
-.table-cell {
-    -fx-border-color: transparent;
-    -fx-padding: 8px;
-}
-
-
-.label-info-bold {
-    -fx-font-weight: bold;
-    -fx-text-fill: #555555;
-    -fx-font-size: 14px;
-}
-
+/* --- Message Labels --- */
 .status-message-label {
-    -fx-text-fill: #007BFF;
+    -fx-text-fill: var(--accent-blue);
     -fx-font-weight: bold;
 }
-
 .error-message-label {
-    -fx-text-fill: #DC3545;
+    -fx-text-fill: var(--accent-red);
     -fx-font-weight: bold;
 }
-
-.titled-pane > .title {
-    -fx-background-color: #E9ECEF;
-    -fx-border-color: #CCCCCC;
-    -fx-border-width: 1px;
-    -fx-border-radius: 5px 5px 0 0;
-    -fx-background-radius: 5px 5px 0 0;
-}
-
-.titled-pane > .title > .text {
-    -fx-font-weight: bold;
-    -fx-text-fill: #333333;
-}
-
-.titled-pane > .content {
-    -fx-border-color: #CCCCCC;
-    -fx-border-width: 0 1px 1px 1px;
-    -fx-border-radius: 0 0 5px 5px;
-    -fx-background-radius: 0 0 5px 5px;
-    -fx-background-color: #FFFFFF;
-}
-
-.list-view {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
-}
-
-.list-cell {
-    -fx-padding: 10px;
-    -fx-background-color: transparent;
-}
-
-.list-cell:filled:selected, .list-cell:filled:selected:hover {
-    -fx-background-color: #CCE5FF;
-    -fx-text-fill: #333333;
-}
-
-.list-cell:filled:hover {
-    -fx-background-color: #E0E0E0;
-    -fx-text-fill: #333333;
-}
-
-.tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: #E9ECEF;
-    -fx-background-radius: 5px;
-}
-
-.tab-pane .tab {
-    -fx-background-color: #F8F8F8;
-    -fx-background-radius: 5px 5px 0 0;
-    -fx-padding: 8px 15px;
-}
-
-.tab-pane .tab:selected {
-    -fx-background-color: #FFFFFF;
-    -fx-background-radius: 5px 5px 0 0;
-    -fx-border-color: #CCCCCC;
-    -fx-border-width: 1px 1px 0 1px;
-    -fx-border-radius: 5px 5px 0 0;
-}
-
-.tab-pane .tab-content {
-    -fx-background-color: #FFFFFF;
-    -fx-border-color: #CCCCCC;
-    -fx-border-width: 0 1px 1px 1px;
-    -fx-border-radius: 0 0 5px 5px;
-}
-
-.scroll-pane {
-    -fx-background-color: transparent;
-}
-.scroll-pane .viewport {
-    -fx-background-color: transparent;
-}
-.scroll-pane .scroll-bar:vertical .increment-button,
-.scroll-pane .scroll-bar:vertical .decrement-button {
-    -fx-background-color: transparent;
-}
-.scroll-pane .scroll-bar:vertical .increment-arrow,
-.scroll-pane .scroll-bar:vertical .decrement-arrow {
-    -fx-background-color: #999999;
-}
-.scroll-pane .scroll-bar:vertical .thumb {
-    -fx-background-color: #CCCCCC;
-    -fx-background-insets: 3;
-    -fx-background-radius: 5;
-}
-
-:root {
-    --purple-light: #EDE8F7;
-    --purple-medium: #B4A7E0;
-    --purple-dark: #6C5CE7;
-    --purple-button: #6C5CE7;
-    --green-success: #28A745;
-    --text-color-dark: #333333;
-    --text-color-light: #FFFFFF;
-    --text-color-link: #6C5CE7;
-    --background-light: #FFFFFF;
-    --border-color-light: #E0E0E0;
-    --gray-light-bg: #F8F8F8;
-    --gray-border: #CCCCCC;
-    --error-red: #DC3545;
-}
-
-.root {
-    -fx-font-family: "Inter", sans-serif; /* Menggunakan font Inter atau fallback sans-serif */
-    -fx-background-color: var(--gray-light-bg); /* Latar belakang umum aplikasi */
-}
-
-.welcome-panel {
-    -fx-background-color: var(--purple-dark);
-    -fx-alignment: CENTER;
-    -fx-padding: 20px;
-    -fx-spacing: 10px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0);
-    -fx-background-radius: 10px 0 0 10px;
-}
-
-.welcome-text-1 {
-    -fx-text-fill: var(--text-color-light);
-    -fx-font-size: 36px;
-    -fx-font-weight: bold;
-}
-
-.welcome-text-2 {
-    -fx-text-fill: var(--text-color-light);
-    -fx-font-size: 16px;
-    -fx-alignment: CENTER; /* Pusatkan teks deskripsi */
-}
-
-/* --- Right Panel (Kontainer StackPane) --- */
-.right-panel {
-    -fx-background-color: var(--background-light);
-    -fx-alignment: CENTER;
-    -fx-background-radius: 0 10px 10px 0; /* Sudut membulat hanya di kanan */
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 0); /* Sedikit bayangan */
-}
-
-/* --- Inner Forms (Sign In / Sign Up) --- */
-.signin-panel-inner, .signup-panel-inner {
-    -fx-padding: 40px;
-    -fx-spacing: 20px;
-    -fx-alignment: CENTER;
-    -fx-pref-width: 400px; /* Pastikan lebarnya konsisten */
-    /* Transisi untuk fade in/out */
-    -fx-opacity: 1; /* Default opacity */
-    -fx-transition: opacity 0.5s ease-in-out;
-}
-
-
-.signin-title {
-    -fx-text-fill: var(--text-color-dark); /* Warna teks gelap */
-    -fx-font-size: 28px;
-    -fx-font-weight: bold;
-    -fx-padding-bottom: 20px; /* Jarak bawah dari judul */
-}
-
-/* --- Text Fields (Username, Password, Email) --- */
-.custom-text-field {
-    -fx-pref-width: 280px;
-    -fx-padding: 10px 15px;
-    -fx-border-color: var(--gray-border); /* Border abu-abu terang */
-    -fx-border-width: 1px;
-    -fx-border-radius: 8px; /* Sudut membulat */
-    -fx-background-radius: 8px;
-    -fx-background-color: var(--gray-light-bg); /* Latar belakang abu-abu sangat terang */
-    -fx-font-size: 14px;
-    -fx-prompt-text-fill: #A0A0A0; /* Warna placeholder */
-}
-
-.custom-text-field:focused {
-    -fx-border-color: var(--purple-dark); /* Warna border ungu saat fokus */
-    -fx-effect: dropshadow(gaussian, rgba(108, 92, 231, 0.2), 5, 0.2, 0, 0); /* Bayangan saat fokus */
-}
-
-/* --- CheckBox --- */
-.remember-me-checkbox {
-    -fx-text-fill: #555555;
-    -fx-font-size: 13px;
-    -fx-selected-box-color: var(--purple-dark); /* Warna kotak centang saat dipilih */
-}
-
-.remember-me-checkbox .box {
-    -fx-background-color: #F0F0F0;
-    -fx-background-radius: 4px;
-    -fx-border-color: var(--gray-border);
-    -fx-border-radius: 4px;
-}
-
-.remember-me-checkbox:selected .box .mark {
-    -fx-background-color: white;
-}
-
-
-/* --- Hyperlinks --- */
-.forgot-password-link, .create-account-link {
-    -fx-text-fill: var(--purple-dark); /* Warna link ungu */
-    -fx-font-size: 13px;
-    -fx-underline: false; /* Jangan ada garis bawah default */
-}
-
-.forgot-password-link:hover, .create-account-link:hover {
-    -fx-underline: true;
-}
-
-/* --- Sign In Button (Primary Purple) --- */
-.signin-button {
-    -fx-background-color: var(--purple-dark); /* Warna tombol ungu */
-    -fx-text-fill: var(--text-color-light);
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 10px; /* Lebih membulat */
-    -fx-padding: 12px 25px;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(108, 92, 231, 0.3), 10, 0.4, 0, 0); /* Bayangan ungu */
-}
-
-/* --- Sign Up Button (Green) --- */
-.signin-button-green {
-    -fx-background-color: var(--green-success); /* Warna hijau */
-    -fx-text-fill: var(--text-color-light);
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-background-radius: 10px;
-    -fx-padding: 12px 25px;
-    -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(40, 167, 69, 0.3), 10, 0.4, 0, 0); /* Bayangan hijau */
-}
-
-
-.signin-button:hover, .signin-button-green:hover {
-    -fx-opacity: 0.9;
-    -fx-scale-y: 1.01;
-    -fx-scale-x: 1.01;
-}
-
-.signin-button:pressed, .signin-button-green:pressed {
-    -fx-translate-y: 1px;
-}
-
-/* --- "New here?" Text --- */
-.new-here-text {
-    -fx-text-fill: #555555;
-    -fx-font-size: 13px;
-}
-
-/* --- Error/Message Labels --- */
-.error-message-label {
-    -fx-text-fill: var(--error-red); /* Merah untuk error */
-    -fx-font-size: 13px;
-    -fx-font-weight: bold;
-}
-
