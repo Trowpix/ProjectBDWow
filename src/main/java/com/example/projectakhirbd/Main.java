@@ -14,7 +14,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/projectakhirbd/Auth/login-signup.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Auth/login-signup.fxml"));
             Parent root = loader.load();
 
             Scene scene = new Scene(root);

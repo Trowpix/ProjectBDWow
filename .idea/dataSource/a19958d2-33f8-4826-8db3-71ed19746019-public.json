@@ -1,0 +1,2278 @@
+{
+  "name" : "public",
+  "VIEWS" : [ ],
+  "TABLES" : [ {
+    "TABLE_NAME" : "absen",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "daftar_ekskul",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "detail_raport",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "ekstrakulikuler",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "guru",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "history_wakel",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "kelas",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "mata_pelajaran",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "nilai_ujian",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "pengajaran",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "raport",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "siswa",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "tahun_ajaran",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "ujian",
+    "IS_TEMPORARY" : "N"
+  }, {
+    "TABLE_NAME" : "user_account",
+    "IS_TEMPORARY" : "N"
+  } ],
+  "SEQUENCES" : [ {
+    "SEQUENCE_NAME" : "absen_id_absen_seq"
+  }, {
+    "SEQUENCE_NAME" : "detail_raport_id_detail_seq"
+  }, {
+    "SEQUENCE_NAME" : "ekstrakulikuler_id_ekskul_seq"
+  }, {
+    "SEQUENCE_NAME" : "guru_id_guru_seq"
+  }, {
+    "SEQUENCE_NAME" : "history_wakel_id_history_seq"
+  }, {
+    "SEQUENCE_NAME" : "kelas_id_kelas_seq"
+  }, {
+    "SEQUENCE_NAME" : "mata_pelajaran_id_mapel_seq"
+  }, {
+    "SEQUENCE_NAME" : "nilai_ujian_id_nilai_ujian_seq"
+  }, {
+    "SEQUENCE_NAME" : "pengajaran_id_pengajaran_seq"
+  }, {
+    "SEQUENCE_NAME" : "raport_id_rapor_seq"
+  }, {
+    "SEQUENCE_NAME" : "siswa_id_siswa_seq"
+  }, {
+    "SEQUENCE_NAME" : "tahun_ajaran_id_tahun_seq"
+  }, {
+    "SEQUENCE_NAME" : "ujian_id_ujian_seq"
+  }, {
+    "SEQUENCE_NAME" : "user_account_id_account_seq"
+  } ],
+  "FUNCTIONS" : [ ],
+  "DATASET_TRIGGERS" : [ ],
+  "DATASET_INDEXES" : [ {
+    "INDEX_NAME" : "user_account_pkey",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "user_account_username_key",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  } ],
+  "ALL_CONSTRAINTS" : [ {
+    "DATASET_NAME" : "absen",
+    "CONSTRAINT_NAME" : "2200_33543_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_absen IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "absen",
+    "CONSTRAINT_NAME" : "2200_33543_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "tanggal_absen IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "absen",
+    "CONSTRAINT_NAME" : "2200_33543_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "status_absen IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "absen",
+    "CONSTRAINT_NAME" : "2200_33543_5_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_siswa IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "absen",
+    "CONSTRAINT_NAME" : "absen_id_siswa_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "siswa_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "absen",
+    "CONSTRAINT_NAME" : "absen_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "absen",
+    "CONSTRAINT_NAME" : "absen_status_absen_check",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "(((status_absen)::text = ANY ((ARRAY['Hadir'::character varying, 'Izin'::character varying, 'Sakit'::character varying, 'Alpha'::character varying])::text[])))"
+  }, {
+    "DATASET_NAME" : "daftar_ekskul",
+    "CONSTRAINT_NAME" : "2200_33562_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_ekskul IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "daftar_ekskul",
+    "CONSTRAINT_NAME" : "2200_33562_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_siswa IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "daftar_ekskul",
+    "CONSTRAINT_NAME" : "2200_33562_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "tanggal_lahir IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "daftar_ekskul",
+    "CONSTRAINT_NAME" : "daftar_ekskul_id_ekskul_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "ekstrakulikuler_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "daftar_ekskul",
+    "CONSTRAINT_NAME" : "daftar_ekskul_id_siswa_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "siswa_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "daftar_ekskul",
+    "CONSTRAINT_NAME" : "daftar_ekskul_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "detail_raport",
+    "CONSTRAINT_NAME" : "2200_33496_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_detail IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "detail_raport",
+    "CONSTRAINT_NAME" : "2200_33496_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_rapor IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "detail_raport",
+    "CONSTRAINT_NAME" : "2200_33496_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_mapel IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "detail_raport",
+    "CONSTRAINT_NAME" : "2200_33496_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nilai IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "detail_raport",
+    "CONSTRAINT_NAME" : "detail_raport_id_mapel_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "mata_pelajaran_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "detail_raport",
+    "CONSTRAINT_NAME" : "detail_raport_id_rapor_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "raport_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "detail_raport",
+    "CONSTRAINT_NAME" : "detail_raport_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "ekstrakulikuler",
+    "CONSTRAINT_NAME" : "2200_33556_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_ekskul IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "ekstrakulikuler",
+    "CONSTRAINT_NAME" : "2200_33556_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_ekskul IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "ekstrakulikuler",
+    "CONSTRAINT_NAME" : "2200_33556_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "tanggal_ekskul IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "ekstrakulikuler",
+    "CONSTRAINT_NAME" : "ekstrakulikuler_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "2200_33412_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_guru IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "2200_33412_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_lengkap IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "2200_33412_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "tempat_tanggal_lahir IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "2200_33412_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "no_hp IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "2200_33412_5_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "email IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "2200_33412_6_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "status IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "guru_email_key",
+    "CONSTRAINT_TYPE" : "UNIQUE",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "guru_no_hp_key",
+    "CONSTRAINT_TYPE" : "UNIQUE",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "guru_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "guru",
+    "CONSTRAINT_NAME" : "guru_status_check",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "(((status)::text = ANY ((ARRAY['Tetap'::character varying, 'Honorer'::character varying])::text[])))"
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "2200_33438_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_history IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "2200_33438_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_guru IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "2200_33438_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_kelas IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "2200_33438_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_tahun IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "history_wakel_id_guru_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "guru_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "history_wakel_id_kelas_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "kelas_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "history_wakel_id_tahun_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "tahun_ajaran_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "history_wakel",
+    "CONSTRAINT_NAME" : "history_wakel_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "kelas",
+    "CONSTRAINT_NAME" : "2200_33424_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_kelas IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "kelas",
+    "CONSTRAINT_NAME" : "2200_33424_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_kelas IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "kelas",
+    "CONSTRAINT_NAME" : "kelas_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "mata_pelajaran",
+    "CONSTRAINT_NAME" : "2200_33460_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_mapel IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "mata_pelajaran",
+    "CONSTRAINT_NAME" : "2200_33460_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_mapel IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "mata_pelajaran",
+    "CONSTRAINT_NAME" : "mata_pelajaran_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "2200_33525_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_nilai_ujian IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "2200_33525_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_ujian IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "2200_33525_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nilai_ujian IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "2200_33525_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_ujian IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "2200_33525_5_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_siswa IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "nilai_ujian_id_siswa_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "siswa_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "nilai_ujian_id_ujian_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "ujian_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "nilai_ujian_nilai_ujian_check",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "((((nilai_ujian)::text ~ '^[0-9]+$'::text) AND (((nilai_ujian)::integer >= 0) AND ((nilai_ujian)::integer <= 100))))"
+  }, {
+    "DATASET_NAME" : "nilai_ujian",
+    "CONSTRAINT_NAME" : "nilai_ujian_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "2200_33467_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_pengajaran IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "2200_33467_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_pengajaran IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "2200_33467_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_mapel IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "2200_33467_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_kelas IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "2200_33467_5_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_guru IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "pengajaran_id_guru_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "guru_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "pengajaran_id_kelas_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "kelas_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "pengajaran_id_mapel_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "mata_pelajaran_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "pengajaran",
+    "CONSTRAINT_NAME" : "pengajaran_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "raport",
+    "CONSTRAINT_NAME" : "2200_33489_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_rapor IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "raport",
+    "CONSTRAINT_NAME" : "2200_33489_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "tanggal_rapor IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "raport",
+    "CONSTRAINT_NAME" : "raport_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "2200_33400_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_siswa IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "2200_33400_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_lengkap IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "2200_33400_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "tempat_tanggal_lahir IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "2200_33400_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "alamat IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "2200_33400_5_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "kelamin IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "2200_33400_6_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "email IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "2200_33400_7_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "no_hp IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "siswa_email_key",
+    "CONSTRAINT_TYPE" : "UNIQUE",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "siswa_kelamin_check",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "(((kelamin)::text = ANY ((ARRAY['L'::character varying, 'P'::character varying])::text[])))"
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "siswa_no_hp_key",
+    "CONSTRAINT_TYPE" : "UNIQUE",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "siswa",
+    "CONSTRAINT_NAME" : "siswa_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "tahun_ajaran",
+    "CONSTRAINT_NAME" : "2200_33431_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_tahun IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "tahun_ajaran",
+    "CONSTRAINT_NAME" : "2200_33431_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "start_date IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "tahun_ajaran",
+    "CONSTRAINT_NAME" : "2200_33431_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "end_date IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "tahun_ajaran",
+    "CONSTRAINT_NAME" : "tahun_ajaran_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "ujian",
+    "CONSTRAINT_NAME" : "2200_33513_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_ujian IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "ujian",
+    "CONSTRAINT_NAME" : "2200_33513_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "nama_ujian IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "ujian",
+    "CONSTRAINT_NAME" : "2200_33513_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "tanggal_ujian IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "ujian",
+    "CONSTRAINT_NAME" : "2200_33513_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_mapel IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "ujian",
+    "CONSTRAINT_NAME" : "ujian_id_mapel_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "mata_pelajaran_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "ujian",
+    "CONSTRAINT_NAME" : "ujian_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_account IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "username IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "password_hash IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "role IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_id_guru_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "guru_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_id_siswa_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "siswa_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_role_check",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "(((role)::text = ANY ((ARRAY['admin'::character varying, 'siswa'::character varying, 'guru'::character varying])::text[])))"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_username_key",
+    "CONSTRAINT_TYPE" : "UNIQUE",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  } ],
+  "DATASET_CONSTRAINTS" : [ {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_1_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "id_account IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_2_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "username IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_3_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "password_hash IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "2200_33578_4_not_null",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "role IS NOT NULL"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_id_guru_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "guru_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_id_siswa_fkey",
+    "CONSTRAINT_TYPE" : "FOREIGN KEY",
+    "FK_CONSTRAINT_OWNER" : "public",
+    "FK_CONSTRAINT_NAME" : "siswa_pkey",
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_pkey",
+    "CONSTRAINT_TYPE" : "PRIMARY KEY",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_role_check",
+    "CONSTRAINT_TYPE" : "CHECK",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : "(((role)::text = ANY ((ARRAY['admin'::character varying, 'siswa'::character varying, 'guru'::character varying])::text[])))"
+  }, {
+    "DATASET_NAME" : "user_account",
+    "CONSTRAINT_NAME" : "user_account_username_key",
+    "CONSTRAINT_TYPE" : "UNIQUE",
+    "FK_CONSTRAINT_OWNER" : null,
+    "FK_CONSTRAINT_NAME" : null,
+    "IS_ENABLED" : "Y",
+    "CHECK_CONDITION" : null
+  } ],
+  "DATASET_COLUMNS" : [ {
+    "COLUMN_NAME" : "id_account",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_guru",
+    "POSITION" : 6,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "Y",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_siswa",
+    "POSITION" : 5,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "Y",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "password_hash",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 255,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "role",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 10,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "username",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  } ],
+  "ALL_COLUMNS" : [ {
+    "COLUMN_NAME" : "batas_absen",
+    "DATASET_NAME" : "absen",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "Y",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_absen",
+    "DATASET_NAME" : "absen",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_siswa",
+    "DATASET_NAME" : "absen",
+    "POSITION" : 5,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "status_absen",
+    "DATASET_NAME" : "absen",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "tanggal_absen",
+    "DATASET_NAME" : "absen",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_ekskul",
+    "DATASET_NAME" : "daftar_ekskul",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_siswa",
+    "DATASET_NAME" : "daftar_ekskul",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "tanggal_lahir",
+    "DATASET_NAME" : "daftar_ekskul",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_detail",
+    "DATASET_NAME" : "detail_raport",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_mapel",
+    "DATASET_NAME" : "detail_raport",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_rapor",
+    "DATASET_NAME" : "detail_raport",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nilai",
+    "DATASET_NAME" : "detail_raport",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_ekskul",
+    "DATASET_NAME" : "ekstrakulikuler",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_ekskul",
+    "DATASET_NAME" : "ekstrakulikuler",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "tanggal_ekskul",
+    "DATASET_NAME" : "ekstrakulikuler",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "email",
+    "DATASET_NAME" : "guru",
+    "POSITION" : 5,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_guru",
+    "DATASET_NAME" : "guru",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_lengkap",
+    "DATASET_NAME" : "guru",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "no_hp",
+    "DATASET_NAME" : "guru",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "status",
+    "DATASET_NAME" : "guru",
+    "POSITION" : 6,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "tempat_tanggal_lahir",
+    "DATASET_NAME" : "guru",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_guru",
+    "DATASET_NAME" : "history_wakel",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_history",
+    "DATASET_NAME" : "history_wakel",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_kelas",
+    "DATASET_NAME" : "history_wakel",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_tahun",
+    "DATASET_NAME" : "history_wakel",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_kelas",
+    "DATASET_NAME" : "kelas",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_kelas",
+    "DATASET_NAME" : "kelas",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "deskripsi_mapel",
+    "DATASET_NAME" : "mata_pelajaran",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "Y",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_mapel",
+    "DATASET_NAME" : "mata_pelajaran",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_mapel",
+    "DATASET_NAME" : "mata_pelajaran",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_nilai_ujian",
+    "DATASET_NAME" : "nilai_ujian",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_siswa",
+    "DATASET_NAME" : "nilai_ujian",
+    "POSITION" : 5,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_ujian",
+    "DATASET_NAME" : "nilai_ujian",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_ujian",
+    "DATASET_NAME" : "nilai_ujian",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nilai_ujian",
+    "DATASET_NAME" : "nilai_ujian",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_guru",
+    "DATASET_NAME" : "pengajaran",
+    "POSITION" : 5,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_kelas",
+    "DATASET_NAME" : "pengajaran",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_mapel",
+    "DATASET_NAME" : "pengajaran",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_pengajaran",
+    "DATASET_NAME" : "pengajaran",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_pengajaran",
+    "DATASET_NAME" : "pengajaran",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_rapor",
+    "DATASET_NAME" : "raport",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "tanggal_rapor",
+    "DATASET_NAME" : "raport",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "alamat",
+    "DATASET_NAME" : "siswa",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "email",
+    "DATASET_NAME" : "siswa",
+    "POSITION" : 6,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_siswa",
+    "DATASET_NAME" : "siswa",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "kelamin",
+    "DATASET_NAME" : "siswa",
+    "POSITION" : 5,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_lengkap",
+    "DATASET_NAME" : "siswa",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "no_hp",
+    "DATASET_NAME" : "siswa",
+    "POSITION" : 7,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "tempat_tanggal_lahir",
+    "DATASET_NAME" : "siswa",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "end_date",
+    "DATASET_NAME" : "tahun_ajaran",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_tahun",
+    "DATASET_NAME" : "tahun_ajaran",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "start_date",
+    "DATASET_NAME" : "tahun_ajaran",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_mapel",
+    "DATASET_NAME" : "ujian",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_ujian",
+    "DATASET_NAME" : "ujian",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "nama_ujian",
+    "DATASET_NAME" : "ujian",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "tanggal_ujian",
+    "DATASET_NAME" : "ujian",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "date",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_account",
+    "DATASET_NAME" : "user_account",
+    "POSITION" : 1,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "Y",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_guru",
+    "DATASET_NAME" : "user_account",
+    "POSITION" : 6,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "Y",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "id_siswa",
+    "DATASET_NAME" : "user_account",
+    "POSITION" : 5,
+    "DATA_TYPE_NAME" : "integer",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : null,
+    "DATA_PRECISION" : 32,
+    "DATA_SCALE" : 0,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "Y",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "Y",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "password_hash",
+    "DATASET_NAME" : "user_account",
+    "POSITION" : 3,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 255,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "role",
+    "DATASET_NAME" : "user_account",
+    "POSITION" : 4,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 10,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  }, {
+    "COLUMN_NAME" : "username",
+    "DATASET_NAME" : "user_account",
+    "POSITION" : 2,
+    "DATA_TYPE_NAME" : "character varying",
+    "DECL_TYPE_OWNER" : null,
+    "DECL_TYPE_PROGRAM" : null,
+    "DECL_TYPE_NAME" : null,
+    "DATA_LENGTH" : 50,
+    "DATA_PRECISION" : null,
+    "DATA_SCALE" : null,
+    "IS_SET" : "N",
+    "IS_NULLABLE" : "N",
+    "IS_HIDDEN" : "N",
+    "IS_PRIMARY_KEY" : "N",
+    "IS_FOREIGN_KEY" : "N",
+    "IS_UNIQUE_KEY" : "N",
+    "IS_IDENTITY" : "N"
+  } ],
+  "ALL_INDEXES" : [ {
+    "INDEX_NAME" : "absen_pkey",
+    "TABLE_NAME" : "absen",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "daftar_ekskul_pkey",
+    "TABLE_NAME" : "daftar_ekskul",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "detail_raport_pkey",
+    "TABLE_NAME" : "detail_raport",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "ekstrakulikuler_pkey",
+    "TABLE_NAME" : "ekstrakulikuler",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "guru_email_key",
+    "TABLE_NAME" : "guru",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "guru_no_hp_key",
+    "TABLE_NAME" : "guru",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "guru_pkey",
+    "TABLE_NAME" : "guru",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "history_wakel_pkey",
+    "TABLE_NAME" : "history_wakel",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "kelas_pkey",
+    "TABLE_NAME" : "kelas",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "mata_pelajaran_pkey",
+    "TABLE_NAME" : "mata_pelajaran",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "nilai_ujian_pkey",
+    "TABLE_NAME" : "nilai_ujian",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "pengajaran_pkey",
+    "TABLE_NAME" : "pengajaran",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "raport_pkey",
+    "TABLE_NAME" : "raport",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "siswa_email_key",
+    "TABLE_NAME" : "siswa",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "siswa_no_hp_key",
+    "TABLE_NAME" : "siswa",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "siswa_pkey",
+    "TABLE_NAME" : "siswa",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "tahun_ajaran_pkey",
+    "TABLE_NAME" : "tahun_ajaran",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "ujian_pkey",
+    "TABLE_NAME" : "ujian",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "user_account_pkey",
+    "TABLE_NAME" : "user_account",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  }, {
+    "INDEX_NAME" : "user_account_username_key",
+    "TABLE_NAME" : "user_account",
+    "IS_UNIQUE" : "Y",
+    "IS_VALID" : "Y"
+  } ],
+  "ALL_DATASET_TRIGGERS" : [ ]
+}
