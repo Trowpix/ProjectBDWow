@@ -1,6 +1,7 @@
 module com.example.projectakhirbd {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.projectakhirbd to javafx.fxml;
