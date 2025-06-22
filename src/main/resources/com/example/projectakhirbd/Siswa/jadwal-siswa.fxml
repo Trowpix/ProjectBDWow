@@ -38,7 +38,9 @@
         <children>
             <Label text="Pilih Hari:" />
             <ComboBox fx:id="hariFilterComboBox" prefWidth="150.0" promptText="Semua Hari" />
-            <Button mnemonicParsing="false" onAction="#handleTampilkanJadwal" text="Tampilkan Jadwal" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" />
+            <Button mnemonicParsing="false" text="Tampilkan Jadwal" style="-fx-background-color: #007BFF; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" >
+                <onAction>#handleTampilkanJadwal</onAction>
+            </Button>
         </children>
     </HBox>
     <TableView fx:id="jadwalKelasTable" VBox.vgrow="ALWAYS" style="-fx-border-color: #CCCCCC; -fx-border-radius: 5;">
