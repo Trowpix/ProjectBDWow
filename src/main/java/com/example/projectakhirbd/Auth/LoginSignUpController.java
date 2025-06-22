@@ -50,7 +50,6 @@ public class LoginSignUpController {
         String confirmPassword = signUpConfirmPasswordField.getText();
         String role = signUpRoleComboBox.getValue();
 
-        // Input validation
         if (username.isBlank() || email.isBlank() || password.isBlank() || confirmPassword.isBlank() || role == null) {
             signUpMessageLabel.setText("All fields, including role, are required.");
             return;
@@ -62,7 +61,6 @@ public class LoginSignUpController {
         }
 
         try (Connection connection = DatabaseConnection.getConnection()) {
-            // Check if username or email already exists
             String checkUserQuery = "SELECT * FROM users WHERE username = ? OR email = ?";
             PreparedStatement checkStmt = connection.prepareStatement(checkUserQuery);
             checkStmt.setString(1, username);
@@ -121,7 +119,6 @@ public class LoginSignUpController {
     }
 
     public void handleForgotPassword(ActionEvent actionEvent) {
-        // Simple alert for now
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Forgot Password");
         alert.setHeaderText("Password recovery instructions.");
@@ -132,7 +129,6 @@ public class LoginSignUpController {
     private void redirectUserBasedOnRole(String role, String username) {
         String fxmlPath = null;
 
-        // Tentukan path FXML berdasarkan role
         switch (role) {
             case "Guru":
                 fxmlPath = "/com/example/projectakhirbd/Guru/menu-guru.fxml";
@@ -149,14 +145,10 @@ public class LoginSignUpController {
         }
 
         try {
-            // Mendapatkan stage utama aplikasi
             Stage stage = (Stage) roleComboBox.getScene().getWindow();
 
-            // Memuat file FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
-
-            // Setel scene baru
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException e) {

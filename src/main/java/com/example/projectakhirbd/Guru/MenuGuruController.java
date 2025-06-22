@@ -15,18 +15,14 @@ public class MenuGuruController {
         String fxmlPath = "/com/example/projectakhirbd/Auth/login-signup.fxml"; // Path ke halaman login
 
         try {
-            // Dapatkan stage utama
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
 
-            // Muat ulang halaman login
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent root = loader.load();
 
-            // Setel scene dengan halaman login
             stage.setScene(new Scene(root));
             stage.show();
 
-            // Opsional: Tampilkan pesan di konsol (untuk debugging)
             System.out.println("User logged out and redirected to login page.");
         } catch (IOException e) {
             e.printStackTrace();
@@ -52,11 +48,8 @@ public class MenuGuruController {
 
     private void navigateToPage(String fxmlPath, ActionEvent actionEvent, String pageName) {
         try {
-            // Muat file FXML
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Parent page = loader.load();
-
-            // Ganti scene saat ini dengan halaman baru
             Stage stage = (Stage) ((Button) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(page));
             stage.show();

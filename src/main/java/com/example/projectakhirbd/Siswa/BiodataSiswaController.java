@@ -12,7 +12,6 @@ import java.io.IOException;
 public class BiodataSiswaController {
 
     public void handleBackToMenu(ActionEvent actionEvent) {
-        // Logika untuk kembali ke menu utama.
         String fxmlPath = "/com/example/projectakhirbd/Siswa/menu-siswa.fxml";
 
         try {

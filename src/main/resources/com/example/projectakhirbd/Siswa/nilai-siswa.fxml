@@ -40,7 +40,6 @@
             <TableColumn fx:id="uh2Column" prefWidth="100.0" text="Ulangan Harian 2" />
             <TableColumn fx:id="utsColumn" prefWidth="100.0" text="UTS" />
             <TableColumn fx:id="uasColumn" prefWidth="100.0" text="UAS" />
-            <!-- Tambahkan kolom untuk jenis ujian lain jika ada -->
         </columns>
         <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
