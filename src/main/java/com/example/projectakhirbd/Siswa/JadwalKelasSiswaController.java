@@ -28,9 +28,4 @@ public class JadwalKelasSiswaController {
             System.out.println("Gagal kembali ke menu siswa: " + fxmlPath);
         }
     }
-
-    public void handleTampilkanJadwal(ActionEvent actionEvent) {
-        // Logika untuk menampilkan jadwal berdasarkan filter (Kosongkan sementara)
-        System.out.println("Tampilkan jadwal berdasarkan filter.");
-    }
 }
