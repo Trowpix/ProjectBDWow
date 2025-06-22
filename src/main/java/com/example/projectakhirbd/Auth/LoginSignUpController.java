@@ -2,10 +2,15 @@ package com.example.projectakhirbd.Auth;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import com.example.projectakhirbd.DatabaseConnection;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -67,7 +72,6 @@ public class LoginSignUpController {
             if (rs.next()) {
                 signUpMessageLabel.setText("User with the same username or email already exists.");
             } else {
-
                 String insertUserQuery = "INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, ?)";
                 PreparedStatement insertStmt = connection.prepareStatement(insertUserQuery);
                 insertStmt.setString(1, username);
@@ -106,7 +110,7 @@ public class LoginSignUpController {
 
             if (rs.next()) {
                 loginMessageLabel.setText("Login successful. Welcome, " + role + "!");
-                redirectUserBasedOnRole(role);
+                redirectUserBasedOnRole(role, usernameOrEmail);
             } else {
                 loginMessageLabel.setText("Invalid username/email, password, or role.");
             }
@@ -125,20 +129,40 @@ public class LoginSignUpController {
         alert.showAndWait();
     }
 
-    private void redirectUserBasedOnRole(String role) {
+    private void redirectUserBasedOnRole(String role, String username) {
+        String fxmlPath = null;
+
+        // Tentukan path FXML berdasarkan role
         switch (role) {
             case "Guru":
-                System.out.println("Redirect to Guru Menu");
+                fxmlPath = "/com/example/projectakhirbd/Guru/menu-guru.fxml";
                 break;
             case "Siswa":
-                System.out.println("Redirect to Siswa Menu");
+                fxmlPath = "/com/example/projectakhirbd/Siswa/menu-siswa.fxml";
                 break;
             case "Admin":
-                System.out.println("Redirect to Admin Menu");
+                fxmlPath = "/com/example/projectakhirbd/Admin/menu-admin.fxml";
                 break;
             default:
                 System.out.println("Unknown role, no redirection.");
-                break;
+                return;
+        }
+
+        try {
+            // Mendapatkan stage utama aplikasi
+            Stage stage = (Stage) roleComboBox.getScene().getWindow();
+
+            // Memuat file FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+
+            // Setel scene baru
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading FXML: " + fxmlPath);
+            loginMessageLabel.setText("Failed to load the page. Please check the logs.");
         }
     }
 }

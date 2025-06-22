@@ -34,7 +34,7 @@
                                 <Insets right="10.0" />
                             </HBox.margin>
                         </Label>
-                        <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogout" style="-fx-background-color: #DC3545; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5;" text="Logout">
+                        <Button fx:id="logoutButton" onAction="#handleLogout" text="Logout">
                             <HBox.margin>
                                 <Insets right="20.0" />
                             </HBox.margin>
